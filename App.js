@@ -1,30 +1,43 @@
 import { StatusBar } from 'expo-status-bar';
-import ProfileSection from './Components/ProfileSection';
 import { useState } from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, SafeAreaView, Button, Image } from 'react-native';
+import LoginForm from './Components/LoginForm';
+import MindfulButton from './Components/MindfulButton';
 
 export default function App() {
 
-  const [showProfileSection, setShowProfileSection] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  const login = () => {
+    console.log('Logging In...');
+    setLoggedIn(true)
+  }
+  const logout = () => {
+    console.log('Logging Out...');
+    setLoggedIn(false)
+  }
 
   return (
-    <View style={styles.container}>
-      <Text style={{ color: 'red', fontWeight: 'bold' }}>Mindful Media!</Text>
+    <SafeAreaView style={styles.container}>
 
-      {showProfileSection &&
-        <ProfileSection name='Brent Julius' email='brentjulius152@gmail.com' phone='(602) 329-7338' onClose={() => { setShowProfileSection(false) }} />
+
+      {!loggedIn && <LoginForm
+        image={require('./assets/MindfulIcon.png')}
+        onLogin={login}
+
+      />
       }
-      {!showProfileSection &&
-        <Button
-          title='Show Profile Section'
-          onPress={() => { setShowProfileSection(true) }}
-        />
 
+      {loggedIn && <MindfulButton
+        title='LOG OUT'
+        onPress={logout}
+
+      />
       }
 
 
       <StatusBar style="auto" />
-    </View>
+    </SafeAreaView>
   );
 }
 
