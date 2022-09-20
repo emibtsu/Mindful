@@ -22,7 +22,7 @@ export default function App() {
 
 
       {!loggedIn && <LoginForm
-        image={require('./assets/MindfulIcon.png')}
+        image={require('./assets/icon.png')}
         onLogin={login}
 
       />
