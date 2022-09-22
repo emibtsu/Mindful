@@ -10,9 +10,9 @@ export default function MindfulButton(props) {
                 margin: props.margin,
                 paddingVertical: 8,
                 paddingHorizontal: 30,
-                borderRadius: 4,
+                borderRadius: 8,
                 elevation: 3,
-                backgroundColor: 'gray',
+                backgroundColor: 'rgb(92,220,172)'
             }}
             onPress={props.onPress}
         >

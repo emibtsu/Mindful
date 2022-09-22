@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { FormLabel } from 'react-bootstrap';
 import { StyleSheet, Text, View, Image, TextInput, Button } from 'react-native';
 import MindfulButton from './MindfulButton';
 import MindfulTextInput from './MindfulTextInput';
 
 export default function LoginForm(props) {
+
+    const [enteredEmail, setEnteredEmail] = useState('');
+    const [enteredPassword, setEnteredPassword] = useState('');
 
     return (
         <React.Fragment>
@@ -15,7 +18,6 @@ export default function LoginForm(props) {
                         resizeMode: 'cover',
                         height: 200,
                         width: 200,
-
                     }}
                 />
             </View>
@@ -25,8 +27,7 @@ export default function LoginForm(props) {
             <Text style={styles.text}>Email</Text>
             <MindfulTextInput
                 margin={10}
-                onChangeText={() => { console.log('Changed') }}
-                value=''
+                onChangeText={e => { setEnteredEmail(e) }}
                 placeholder='Enter Email'
                 keyboardType='text'
             />
@@ -35,15 +36,14 @@ export default function LoginForm(props) {
 
             <MindfulTextInput
                 margin={10}
-                onChangeText={() => { console.log('Changed') }}
-                value=''
+                onChangeText={e => { setEnteredPassword(e) }}
                 placeholder='Enter Password'
                 keyboardType='text'
             />
 
             <MindfulButton
                 title='LOGIN'
-                onPress={props.onLogin}
+                onPress={() => props.onLogin(enteredEmail, enteredPassword)}
             />
 
         </React.Fragment>

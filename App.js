@@ -1,16 +1,22 @@
 import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
-import { StyleSheet, Text, SafeAreaView, Button, Image } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, SafeAreaView, Button, Image, ScrollView } from 'react-native';
 import LoginForm from './Components/LoginForm';
 import MindfulButton from './Components/MindfulButton';
+import MindfulHorizontalScroll from './Components/MindfulHorizontalScroll';
+import MindfulNavBar from './Components/MindfulNavBar';
 
 export default function App() {
 
   const [loggedIn, setLoggedIn] = useState(false);
 
-  const login = () => {
+  const login = (enteredEmail, enteredPassword) => {
     console.log('Logging In...');
+    console.log('Email: ' + enteredEmail)
+    console.log('Password: ' + enteredPassword)
+    // CHECK USER INFORMATION HERE
     setLoggedIn(true)
+
   }
   const logout = () => {
     console.log('Logging Out...');
@@ -18,26 +24,38 @@ export default function App() {
   }
 
   return (
+
     <SafeAreaView style={styles.container}>
 
 
-      {!loggedIn && <LoginForm
-        image={require('./assets/MindfulIcon.png')}
-        onLogin={login}
+      {!loggedIn &&
+        <React.Fragment>
+          <LoginForm
+            image={require('./assets/MindfulIcon.png')}
+            onLogin={login}
 
-      />
+          />
+        </React.Fragment>
+
       }
 
-      {loggedIn && <MindfulButton
-        title='LOG OUT'
-        onPress={logout}
+      {loggedIn &&
+        <SafeAreaView style={{margin: 10, paddingTop: 40, paddingBottom: 40}}>
+          <MindfulButton
+            title='LOG OUT'
+            onPress={logout}
+          />
+          
+          <MindfulNavBar />
 
-      />
+
+        </SafeAreaView>
       }
 
 
       <StatusBar style="auto" />
     </SafeAreaView>
+
   );
 }
 
