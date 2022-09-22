@@ -7,13 +7,19 @@ import MindfulButton from './Components/MindfulButton';
 export default function App() {
 
   const [loggedIn, setLoggedIn] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const login = () => {
-    console.log('Logging In...');
+  const login = (emailIn, passwordIn) => {
+    console.log('Logging in as:\nEmail: ' + emailIn + '\nPassword: ' + passwordIn);
+    setEmail(emailIn);
+    setPassword(passwordIn  )
     setLoggedIn(true)
   }
-  const logout = () => {
-    console.log('Logging Out...');
+  const logout = (emailIn, passwordIn) => {
+    console.log('Logging out of:\nEmail: ' + emailIn + '\nPassword: ' + passwordIn);
+    setEmail('');
+    setPassword('')
     setLoggedIn(false)
   }
 
@@ -30,7 +36,7 @@ export default function App() {
 
       {loggedIn && <MindfulButton
         title='LOG OUT'
-        onPress={logout}
+        onPress={() => {logout(email, password)}}
 
       />
       }

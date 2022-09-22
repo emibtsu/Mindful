@@ -6,6 +6,9 @@ import MindfulTextInput from './MindfulTextInput';
 
 export default function LoginForm(props) {
 
+    const [emailInput, setEmailInput] = useState('');
+    const [passwordInput, setPasswordInput] = useState('');
+
     return (
         <React.Fragment>
             <View>
@@ -25,8 +28,7 @@ export default function LoginForm(props) {
             <Text style={styles.text}>Email</Text>
             <MindfulTextInput
                 margin={10}
-                onChangeText={() => { console.log('Changed') }}
-                value=''
+                onChangeText={(entry) => {setEmailInput(entry)}}
                 placeholder='Enter Email'
                 keyboardType='text'
             />
@@ -35,15 +37,14 @@ export default function LoginForm(props) {
 
             <MindfulTextInput
                 margin={10}
-                onChangeText={() => { console.log('Changed') }}
-                value=''
+                onChangeText={(entry) => {setPasswordInput(entry)}}
                 placeholder='Enter Password'
                 keyboardType='text'
             />
 
             <MindfulButton
                 title='LOGIN'
-                onPress={props.onLogin}
+                onPress={() => {props.onLogin(emailInput, passwordInput)}}
             />
 
         </React.Fragment>
