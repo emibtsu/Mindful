@@ -1,22 +1,31 @@
 
 import { Pressable, Text, SafeAreaView, StyleSheet } from 'react-native';
 
-export default function MindfulNavBar(props) {
+export default class MindfulNavBar extends React.Component {
 
-    return (
-        <SafeAreaView style={styles.navBar} flexDirection='row'>
+    constructor(props) {
+        super(props);
+        this.state = {
 
-            <Text style={{marginHorizontal: 8}}>000</Text>
-            <Text style={{marginHorizontal: 8}}>000</Text>
-            <Text style={{marginHorizontal: 8}}>000</Text>
-            <Text style={{marginHorizontal: 8}}>000</Text>
-            <Text style={{marginHorizontal: 8}}>000</Text>
-            <Text style={{marginHorizontal: 8}}>000</Text>
+        }
+    }
 
-        </SafeAreaView>
+    render() {
+        return (
+            <SafeAreaView style={styles.navBar} flexDirection='row'>
+
+                <Text style={{ marginHorizontal: 8 }}>000</Text>
+                <Text style={{ marginHorizontal: 8 }}>000</Text>
+                <Text style={{ marginHorizontal: 8 }}>000</Text>
+                <Text style={{ marginHorizontal: 8 }}>000</Text>
+                <Text style={{ marginHorizontal: 8 }}>000</Text>
+                <Text style={{ marginHorizontal: 8 }}>000</Text>
+
+            </SafeAreaView>
 
 
-    )
+        )
+    }
 
 }
 
@@ -25,6 +34,6 @@ const styles = StyleSheet.create({
         paddingVertical: 4,
         paddingHorizontal: 4,
         borderWidth: 1,
-        
+
     },
-  });
+});

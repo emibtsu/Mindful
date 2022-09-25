@@ -1,57 +1,76 @@
 import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, SafeAreaView, Button, Image } from 'react-native';
 import LoginForm from './Components/LoginForm';
 import MindfulButton from './Components/MindfulButton';
+import MyStack from './Components/ScreenStack'
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import LoginScreen from './Screens/LoginScreen';
+import CreateAccountScreen from './Screens/CreateAccountScreen';
 
-export default function App() {
+export default class App extends React.Component {
 
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
 
-  const login = (emailIn, passwordIn) => {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loggedIn: false,
+      email: '',
+      password: ''
+    }
+  }
+
+  login = (emailIn, passwordIn) => {
     console.log('Logging in as:\nEmail: ' + emailIn + '\nPassword: ' + passwordIn);
-    setEmail(emailIn);
-    setPassword(passwordIn  )
-    setLoggedIn(true)
+    this.setState({
+      'email': emailIn,
+      'password': passwordIn,
+      'loggedIn': true
+    });
   }
-  const logout = (emailIn, passwordIn) => {
+
+  logout = (emailIn, passwordIn) => {
     console.log('Logging out of:\nEmail: ' + emailIn + '\nPassword: ' + passwordIn);
-    setEmail('');
-    setPassword('')
-    setLoggedIn(false)
+    this.setState({
+      email: '',
+      password: '',
+      loggedIn: false,
+      emailInput: '',
+      passwordInput: ''
+    });
   }
 
-  return (
-    <SafeAreaView style={styles.container}>
 
+  render() {
+    const Stack = createNativeStackNavigator();
+    return (
+      <React.Fragment>
+        <NavigationContainer>
+          <Stack.Navigator screenOptions={{
+            headerShown: false
+          }}>
+            <Stack.Screen
+              name='LoginScreen'
+              component={LoginScreen}
+              initialParams={{ onLogin: this.login }}
 
-      {!loggedIn && <LoginForm
-        image={require('./assets/icon.png')}
-        onLogin={login}
+            />
+            <Stack.Screen
+              name='CreateAccountScreen'
+              component={CreateAccountScreen}
 
-      />
-      }
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
 
-      {loggedIn && <MindfulButton
-        title='LOG OUT'
-        onPress={() => {logout(email, password)}}
+        {this.state.loggedIn && <MindfulButton
+          title='LOG OUT'
+          onPress={() => { this.logout(this.state.email, this.state.password) }}
 
-      />
-      }
-
-
-      <StatusBar style="auto" />
-    </SafeAreaView>
-  );
+        />
+        }
+      </React.Fragment>
+    );
+  }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

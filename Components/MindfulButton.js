@@ -3,10 +3,12 @@ import { Pressable, Text } from 'react-native';
 
 export default function MindfulButton(props) {
 
+
     return (
         <Pressable
             title={props.title}
             style={{
+                ...props.style,
                 margin: props.margin,
                 paddingVertical: 8,
                 paddingHorizontal: 30,

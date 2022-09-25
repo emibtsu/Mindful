@@ -4,52 +4,68 @@ import { StyleSheet, Text, View, Image, TextInput, Button } from 'react-native';
 import MindfulButton from './MindfulButton';
 import MindfulTextInput from './MindfulTextInput';
 
-export default function LoginForm(props) {
+export default class LoginForm extends React.Component {
 
-    const [emailInput, setEmailInput] = useState('');
-    const [passwordInput, setPasswordInput] = useState('');
+    constructor(props) {
+        super(props);
+        this.state = {
+            emailInput: '',
+            passwordInput: ''
+        }
+    }
 
-    return (
-        <React.Fragment>
-            <View>
-                <Image
-                    source={props.image}
-                    style={{
-                        resizeMode: 'cover',
-                        height: 200,
-                        width: 200,
+    render() {
+        return (
+            <React.Fragment>
+                <View>
+                    <Image
+                        source={require('../assets/icon.png')}
+                        style={{
+                            resizeMode: 'cover',
+                            height: 200,
+                            width: 200,
 
-                    }}
+                        }}
+                    />
+                </View>
+
+                <Text style={styles.title}>Login</Text>
+
+                <Text style={styles.text1}>Email</Text>
+                <MindfulTextInput
+                    margin={10}
+                    onChangeText={(entry) => { this.setState({ 'emailInput': entry }) }}
+                    placeholder='Enter Email'
+                    keyboardType='text1'
                 />
-            </View>
 
-            <Text style={styles.title}>Login</Text>
+                <Text style={styles.text1}>Password</Text>
 
-            <Text style={styles.text}>Email</Text>
-            <MindfulTextInput
-                margin={10}
-                onChangeText={(entry) => {setEmailInput(entry)}}
-                placeholder='Enter Email'
-                keyboardType='text'
-            />
+                <MindfulTextInput
+                    margin={10}
+                    onChangeText={(entry) => { this.setState({ 'passwordInput': entry }) }}
+                    placeholder='Enter Password'
+                    keyboardType='text1'
+                />
 
-            <Text style={styles.text}>Password</Text>
+                <MindfulButton
+                    title='LOGIN'
+                    onPress={() => { this.props.onLogin(this.state.emailInput, this.state.passwordInput) }}
+                />
 
-            <MindfulTextInput
-                margin={10}
-                onChangeText={(entry) => {setPasswordInput(entry)}}
-                placeholder='Enter Password'
-                keyboardType='text'
-            />
+                <Text style={styles.text1}>Don't Have an Account?</Text>
+                <MindfulButton
+                    title='SIGN UP'
+                    paddingVertical='32'
+                    onPress={() => { this.props.navigation.navigate('CreateAccountScreen') }}
+                />
 
-            <MindfulButton
-                title='LOGIN'
-                onPress={() => {props.onLogin(emailInput, passwordInput)}}
-            />
 
-        </React.Fragment>
 
-    )
+            </React.Fragment>
+
+        )
+    }
 
 }
 
@@ -60,10 +76,12 @@ const styles = StyleSheet.create({
         color: 'gray'
     },
 
-    text: {
+    text1: {
         fontSize: 16,
         fontWeight: 'normal',
         color: 'gray'
     },
+
+
 
 });
