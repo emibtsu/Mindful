@@ -1,13 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { StyleSheet, Text, SafeAreaView, Button, Image } from 'react-native';
-import LoginForm from './Components/LoginForm';
 import MindfulButton from './Components/MindfulButton';
-import MyStack from './Components/ScreenStack'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LoginScreen from './Screens/LoginScreen';
 import CreateAccountScreen from './Screens/CreateAccountScreen';
+import WelcomeScreen from './Screens/WelcomeScreen';
 
 export default class App extends React.Component {
 
@@ -50,6 +49,11 @@ export default class App extends React.Component {
           <Stack.Navigator screenOptions={{
             headerShown: false
           }}>
+            <Stack.Screen
+              name='WelcomeScreen'
+              component={WelcomeScreen}
+
+            />
             <Stack.Screen
               name='LoginScreen'
               component={LoginScreen}

@@ -8,22 +8,28 @@ export default function MindfulButton(props) {
         <Pressable
             title={props.title}
             style={{
+                height: 48,
+                width: 343,
+                borderRadius: 35,
+                backgroundColor: '#F5F5F5',
                 ...props.style,
-                margin: props.margin,
-                paddingVertical: 8,
-                paddingHorizontal: 30,
-                borderRadius: 4,
-                elevation: 3,
-                backgroundColor: 'gray',
+
             }}
             onPress={props.onPress}
         >
             <Text
                 style={{
-                    color: 'white'
+                    marginTop: 7,
+                    // fontFamily: Poppins,
+                    fontSize: 20,
+                    fontWeight: '400',
+                    lineHeight: 30,
+                    letterSpacing: 0,
+                    textAlign: 'center'
+
                 }}
             >{props.title}</Text>
-        </Pressable>
+        </Pressable >
 
 
     )

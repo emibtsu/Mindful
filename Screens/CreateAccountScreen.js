@@ -1,7 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { StyleSheet, Text, SafeAreaView, Button, Image, View } from 'react-native';
-import LoginForm from '../Components/LoginForm';
 import MindfulButton from '../Components/MindfulButton';
 import MindfulTextInput from '../Components/MindfulTextInput';
 
