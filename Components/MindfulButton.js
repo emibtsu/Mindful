@@ -25,7 +25,8 @@ export default function MindfulButton(props) {
                     fontWeight: '400',
                     lineHeight: 30,
                     letterSpacing: 0,
-                    textAlign: 'center'
+                    textAlign: 'center',
+                    color: props.textColor
 
                 }}
             >{props.title}</Text>

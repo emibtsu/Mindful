@@ -3,8 +3,9 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, SafeAreaView, Button, Image, View } from 'react-native';
 import MindfulButton from '../Components/MindfulButton';
 import MindfulTextInput from '../Components/MindfulTextInput';
-import { styles } from '../MindfulStyles';
+import { styles } from '../Components/MindfulStyles';
 import MindfulLogo from '../Components/MindfulLogo';
+import TextButton from '../Components/TextButton';
 
 
 export default class LoginScreen extends React.Component {
@@ -21,46 +22,42 @@ export default class LoginScreen extends React.Component {
         return (
             <SafeAreaView style={styles.container}>
 
+                <MindfulLogo height={200} width={200} />
 
-                <React.Fragment>
+                <Text style={{ ...styles.title, marginTop: 50 }}>Welcome back!</Text>
 
-                    <MindfulLogo height={200} width={200} />
-
-                    <Text style={{ ...styles.titleText, marginTop: 50 }}>Welcome back!</Text>
-
-                    <MindfulTextInput
-                        style={{ marginTop: 50 }}
-                        onChangeText={(entry) => { this.setState({ 'emailInput': entry }) }}
-                        placeholder='username'
-                        keyboardType='text'
-                    />
+                <MindfulTextInput
+                    style={{ marginTop: 50 }}
+                    onChangeText={(entry) => { this.setState({ 'emailInput': entry }) }}
+                    placeholder='username'
+                    keyboardType='text'
+                />
 
 
-                    <MindfulTextInput
-                        style={{ marginTop: 20 }}
-                        onChangeText={(entry) => { this.setState({ 'passwordInput': entry }) }}
-                        placeholder='password'
-                        keyboardType='text'
-                    />
+                <MindfulTextInput
+                    style={{ marginTop: 20 }}
+                    onChangeText={(entry) => { this.setState({ 'passwordInput': entry }) }}
+                    placeholder='password'
+                    keyboardType='text'
+                />
 
-                    <MindfulButton
-                        style={{ backgroundColor: '#7D9C73', marginTop: 20 }}
-                        title='login'
-                        onPress={() => { this.props.route.params.onLogin(this.state.emailInput, this.state.passwordInput) }}
-                    />
+                <MindfulButton
+                    style={{ backgroundColor: '#7D9C73', marginTop: 20 }}
+                    title='login'
+                    onPress={() => { this.props.onLogin(this.state.emailInput, this.state.passwordInput) }}
+                />
 
-                    <Text style={styles.text1}>Don't Have an Account?</Text>
+                <TextButton
+                    title='forgot password?'
+                    style={{ ...styles.small, marginTop: 5 }}
+                    onPress={() => { this.props.navigation.navigate('CreateAccountScreen') }}
+                />
 
-                    <MindfulButton
-                        title='placeholder to create account page'
-                        paddingVertical='32'
-                        onPress={() => { this.props.navigation.navigate('CreateAccountScreen') }}
-                    />
-
-                </React.Fragment>
-
-
-
+                <TextButton
+                    title='sign up'
+                    style={{ ...styles.small }}
+                    onPress={() => { this.props.navigation.navigate('CreateAccountScreen') }}
+                />
 
             </SafeAreaView>
         );

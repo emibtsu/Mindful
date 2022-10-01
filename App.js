@@ -7,6 +7,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LoginScreen from './Screens/LoginScreen';
 import CreateAccountScreen from './Screens/CreateAccountScreen';
 import WelcomeScreen from './Screens/WelcomeScreen';
+import AccountSetupScreen from './Screens/AccountSetupScreen';
 
 export default class App extends React.Component {
 
@@ -56,13 +57,16 @@ export default class App extends React.Component {
             />
             <Stack.Screen
               name='LoginScreen'
-              component={LoginScreen}
-              initialParams={{ onLogin: this.login }}
 
-            />
+            >{(props) => <LoginScreen {...props} onLogin={this.login} />}</Stack.Screen>
             <Stack.Screen
               name='CreateAccountScreen'
               component={CreateAccountScreen}
+
+            />
+            <Stack.Screen
+              name='AccountSetupScreen'
+              component={AccountSetupScreen}
 
             />
           </Stack.Navigator>

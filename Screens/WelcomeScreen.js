@@ -4,7 +4,7 @@ import { StyleSheet, Text, SafeAreaView, Button, Image, View } from 'react-nativ
 import MindfulButton from '../Components/MindfulButton';
 import MindfulTextInput from '../Components/MindfulTextInput';
 import MindfulLogo from '../Components/MindfulLogo';
-import { styles } from '../MindfulStyles';
+import { styles } from '../Components/MindfulStyles';
 
 export default class WelcomeScreen extends React.Component {
 
@@ -24,7 +24,7 @@ export default class WelcomeScreen extends React.Component {
 
                     <MindfulLogo height={200} width={200} />
 
-                    <Text style={{ ...styles.titleText, marginTop: 40 }}>Welcome to Mindful.</Text>
+                    <Text style={{ ...styles.title, marginTop: 40 }}>Welcome to Mindful.</Text>
 
                     <Image
                         source={require('../assets/WelcomeScreenImage.png')}

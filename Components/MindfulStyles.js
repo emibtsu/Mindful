@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
 
-    titleText: {
+    title: {
         // fontFamily: 'Poppins',
         fontSize: 26,
         fontWeight: '400',
@@ -17,13 +17,29 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     },
 
-    text1: {
-        fontSize: 16,
-        fontWeight: 'normal',
-        color: 'gray'
+    small: {
+        // fontFamily: 'Poppins',
+        fontSize: 18,
+        fontWeight: '400',
+        lineHeight: 24,
+        letterSpacing: 0,
+        textAlign: 'center',
+        // color: 'gray'
+
     },
+
     mindfulBackground: {
         backgroundColor: '#D2E1D0'
+    },
+
+    mindfulTextLogo: {
+        // fontFamily: 'Poppins',
+        fontSize: 30,
+        fontWeight: '400',
+        lineHeight: 45,
+        letterSpacing: 0,
+        textAlign: 'center',
+        color: '#75926B'
     }
 });
 

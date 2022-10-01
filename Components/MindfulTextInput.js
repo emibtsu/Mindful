@@ -17,6 +17,7 @@ export default function MindfulTextInput(props) {
                 letterSpacing: 0,
                 textAlign: 'left',
                 paddingStart: 20,
+                textAlignVertical: 'center',
                 ...props.style
 
             }}
