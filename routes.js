@@ -3,16 +3,19 @@ var app  = express();
 
 var mysql = require('mysql');
 var bodyParser = require('body-parser');
-
+var pw =  process.argv[2];
 app.use(bodyParser.json({type:'application/json'}));
 app.use(bodyParser.urlencoded({extended:true}));
+
+
+  console.error("Password is:"+pw);
 
 var con = mysql.createConnection({
  
     host:'localhost',
     port:'3306',
     user:'root',
-    password: '', //need to figure out how to auto connect...
+    password: pw, //need to figure out how to auto connect...
     database: 'mindful_db'
 
 });
@@ -28,7 +31,7 @@ con.connect(function(error){
   if(error) console.log(error);
   else console.log("connected");
   con.query("SELECT * FROM USER", function (err, result, fields) {
-    if (err) throw err;
+    //if (err) throw err;
     console.log(result);
   });
 });
