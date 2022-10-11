@@ -6,12 +6,20 @@ export default function MindfulTextInput(props) {
     return (
         <TextInput
             style={{
-                margin: props.margin,
-                border: 'solid',
-                borderWidth: 1,
-                paddingVertical: 2,
-                paddingHorizontal: 15,
-                borderRadius: 4,
+                height: 48,
+                width: 343,
+                borderRadius: 35,
+                backgroundColor: '#F5F5F5',
+                // fontFamily: Poppins,
+                fontSize: 16,
+                fontWeight: '400',
+                lineHeight: 24,
+                letterSpacing: 0,
+                textAlign: 'left',
+                paddingStart: 20,
+                textAlignVertical: 'center',
+                ...props.style
+
             }}
             onChangeText={props.onChangeText}
             value={props.value}
@@ -19,7 +27,7 @@ export default function MindfulTextInput(props) {
             keyboardType={props.keyboardType}
         >
 
-        </TextInput>
+        </TextInput >
 
 
     )

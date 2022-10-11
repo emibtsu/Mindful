@@ -1,9 +1,10 @@
-import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
-import { StyleSheet, Text, SafeAreaView, Button, Image, View } from 'react-native';
-import LoginForm from '../Components/LoginForm';
+import React from 'react';
+import { Text, SafeAreaView } from 'react-native';
 import MindfulButton from '../Components/MindfulButton';
 import MindfulTextInput from '../Components/MindfulTextInput';
+import MindfulLogo from '../Components/MindfulLogo';
+import { styles } from '../Components/MindfulStyles';
+import TextButton from '../Components/TextButton';
 
 export default class CreateAccountScreen extends React.Component {
 
@@ -11,21 +12,27 @@ export default class CreateAccountScreen extends React.Component {
         super(props);
         this.state = {
             emailInput: '',
+            usernameInput: '',
             passwordInput1: '',
             passwordInput2: '',
-            passwordMismatch: false
+            passwordMismatch: false,
+            fieldBlank: false
         }
     }
 
-    createAccunt = (emailIn, passwordIn1, passwordIn2) => {
-        if (passwordIn1 === passwordIn2) {
-            console.log('Creating Account using:\nEmail ' + emailIn + '\nPassword: ' + passwordIn1)
-            // CREATE AN ACCOUNT
-            this.props.navigation.navigate('LoginScreen')
-        } else {
+    createAccunt = (emailIn, usernameIn, passwordIn1, passwordIn2) => {
+        if (emailIn === '' || usernameIn === '' || passwordIn1 === '' || passwordIn2 === '') {
+            this.setState({
+                fieldBlank: true
+            })
+        } else if (passwordIn1 !== passwordIn2) {
             this.setState({
                 passwordMismatch: true
             })
+        } else {
+            console.log('Creating Account using:\nEmail ' + emailIn + '\nUsername: ' + usernameIn + '\nPassword: ' + passwordIn1)
+            // CREATE AN ACCOUNT
+            this.props.navigation.navigate('AccountSetupScreen')
         }
     }
 
@@ -33,89 +40,64 @@ export default class CreateAccountScreen extends React.Component {
         return (
             <SafeAreaView style={styles.container}>
 
-                <React.Fragment>
-                    <View>
-                        <Image
-                            source={require('../assets/icon.png')}
-                            style={{
-                                resizeMode: 'cover',
-                                height: 200,
-                                width: 200,
+                <MindfulLogo height={200} width={200} />
 
-                            }}
-                        />
-                    </View>
+                <Text style={{ ...styles.title, marginTop: 50 }}>Let's get started</Text>
 
-                    <Text style={styles.title}>Sign up!</Text>
+                <MindfulTextInput
+                    style={{ marginTop: 40 }}
+                    onChangeText={(entry) => { this.setState({ 'emailInput': entry.trim(), fieldBlank: false }) }}
+                    placeholder='email'
+                    keyboardType='text'
+                />
 
-                    {this.state.passwordMismatch &&
-                        <Text style={{ ...styles.text1, color: 'red' }}>
-                            Passwords do not match!
-                        </Text>
-                    }
+                <MindfulTextInput
+                    style={{ marginTop: 15 }}
+                    onChangeText={(entry) => { this.setState({ 'usernameInput': entry.trim(), fieldBlank: false }) }}
+                    placeholder='create username'
+                    keyboardType='text'
+                />
 
-                    <Text style={styles.text1}>Email</Text>
+                <MindfulTextInput
+                    style={{ marginTop: 15 }}
+                    onChangeText={(entry) => { this.setState({ 'passwordInput1': entry.trim(), fieldBlank: false, passwordMismatch: false }) }}
+                    placeholder='create password'
+                    keyboardType='text'
+                />
 
-                    <MindfulTextInput
-                        margin={10}
-                        onChangeText={(entry) => { this.setState({ 'emailInput': entry }) }}
-                        placeholder='Enter Email'
-                        keyboardType='text'
-                    />
-                    <Text style={styles.text1}>Create Password</Text>
+                <MindfulTextInput
+                    style={{ marginTop: 15 }}
+                    onChangeText={(entry) => { this.setState({ 'passwordInput2': entry.trim(), fieldBlank: false, passwordMismatch: false }) }}
+                    placeholder='confirm password'
+                    keyboardType='text'
+                />
 
-                    <MindfulTextInput
-                        margin={10}
-                        onChangeText={(entry) => { this.setState({ 'passwordInput1': entry, passwordMismatch: false }) }}
-                        placeholder='Enter Password'
-                        keyboardType='text'
-                    />
+                {this.state.passwordMismatch &&
+                    <Text style={{ ...styles.small, color: 'maroon', marginTop: 10 }}>
+                        Passwords do not match!
+                    </Text>
+                }
+                {this.state.fieldBlank &&
+                    <Text style={{ ...styles.small, color: 'maroon', marginTop: 10 }}>
+                        All fields are required!
+                    </Text>
+                }
 
-                    <Text style={styles.text1}>Confirm Password</Text>
+                <MindfulButton
+                    title='create account'
+                    style={{ backgroundColor: '#7D9C73', marginTop: 15 }}
+                    onPress={() => { this.createAccunt(this.state.emailInput, this.state.usernameInput, this.state.passwordInput1, this.state.passwordInput2) }}
+                />
 
-                    <MindfulTextInput
-                        margin={10}
-                        onChangeText={(entry) => { this.setState({ 'passwordInput2': entry, passwordMismatch: false }) }}
-                        placeholder='Enter Password'
-                        keyboardType='text'
-                    />
+                <Text style={{ ...styles.small, marginTop: 5 }}>already have an account?</Text>
 
-                    <MindfulButton
-                        title='CREATE ACCOUNT'
-                        onPress={() => { this.createAccunt(this.state.emailInput, this.state.passwordInput1, this.state.passwordInput2) }}
-                    />
+                <TextButton
+                    title='login'
+                    style={{ ...styles.small }}
+                    onPress={() => { this.props.navigation.navigate('LoginScreen') }}
+                />
 
-                    <MindfulButton
-                        title='BACK TO LOGIN'
-                        onPress={() => { this.props.navigation.navigate('LoginScreen') }}
-                        style={{ marginTop: 10 }}
-                    />
-
-
-
-
-                </React.Fragment>
             </SafeAreaView>
         );
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    title: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        color: 'gray'
-    },
-
-    text1: {
-        fontSize: 16,
-        fontWeight: 'normal',
-        color: 'gray'
-    },
-});
