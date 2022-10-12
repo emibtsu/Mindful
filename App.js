@@ -8,6 +8,7 @@ import LoginScreen from './Screens/LoginScreen';
 import CreateAccountScreen from './Screens/CreateAccountScreen';
 import WelcomeScreen from './Screens/WelcomeScreen';
 import AccountSetupScreen from './Screens/AccountSetupScreen';
+import ForgotPasswordScreen from './Screens/ForgotPasswordScreen';
 
 export default class App extends React.Component {
 
@@ -67,6 +68,11 @@ export default class App extends React.Component {
             <Stack.Screen
               name='AccountSetupScreen'
               component={AccountSetupScreen}
+
+            />
+            <Stack.Screen
+              name='ForgotPasswordScreen'
+              component={ForgotPasswordScreen}
 
             />
           </Stack.Navigator>

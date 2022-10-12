@@ -3,7 +3,6 @@ import { Image, View } from 'react-native';
 
 
 export default function MindfulLogo(props) {
-
     return (
         <View>
             <Image
@@ -12,6 +11,7 @@ export default function MindfulLogo(props) {
                     resizeMode: 'cover',
                     height: props.height,
                     width: props.width,
+                    ...props.style
 
                 }}
             />

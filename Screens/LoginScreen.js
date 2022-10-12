@@ -6,6 +6,8 @@ import MindfulTextInput from '../Components/MindfulTextInput';
 import { styles } from '../Components/MindfulStyles';
 import MindfulLogo from '../Components/MindfulLogo';
 import TextButton from '../Components/TextButton';
+import BackArrow from '../Components/BackArrow';
+import bodyParser from 'body-parser';
 
 
 export default class LoginScreen extends React.Component {
@@ -22,7 +24,25 @@ export default class LoginScreen extends React.Component {
         return (
             <SafeAreaView style={styles.container}>
 
-                <MindfulLogo height={200} width={200} />
+                <View
+                    style={{
+                        flex: 1,
+                        maxHeight: 10,
+                        flexDirection: 'row',
+                        marginTop: 30,
+                        alignItems: 'center',
+                    }}
+                >
+                    <BackArrow style={{ marginLeft: 0, marginTop: 5 }} onPress={() => { this.props.navigation.navigate('CreateAccountScreen') }} />
+                    <TextButton
+                        title='sign up'
+                        style={{ ...styles.small, marginLeft: 10 }}
+                        onPress={() => { this.props.navigation.navigate('CreateAccountScreen') }}
+                    />
+
+                </View>
+
+                <MindfulLogo height={200} width={200} style={{ marginTop: 80 }} />
 
                 <Text style={{ ...styles.title, marginTop: 50 }}>Welcome back!</Text>
 
@@ -50,7 +70,7 @@ export default class LoginScreen extends React.Component {
                 <TextButton
                     title='forgot password?'
                     style={{ ...styles.small, marginTop: 5 }}
-                    onPress={() => { this.props.navigation.navigate('CreateAccountScreen') }}
+                    onPress={() => { this.props.navigation.navigate('ForgotPasswordScreen') }}
                 />
 
                 <TextButton

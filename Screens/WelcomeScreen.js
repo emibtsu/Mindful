@@ -22,7 +22,7 @@ export default class WelcomeScreen extends React.Component {
 
                 <React.Fragment>
 
-                    <MindfulLogo height={200} width={200} />
+                    <MindfulLogo height={200} width={200} style={{ marginTop: 50 }} />
 
                     <Text style={{ ...styles.title, marginTop: 40 }}>Welcome to Mindful.</Text>
 

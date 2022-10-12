@@ -40,7 +40,7 @@ export default class CreateAccountScreen extends React.Component {
         return (
             <SafeAreaView style={styles.container}>
 
-                <MindfulLogo height={200} width={200} />
+                <MindfulLogo height={200} width={200} style={{ marginTop: 30 }} />
 
                 <Text style={{ ...styles.title, marginTop: 50 }}>Let's get started</Text>
 

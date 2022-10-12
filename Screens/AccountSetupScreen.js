@@ -35,7 +35,7 @@ export default class AccountSetupScreen extends React.Component {
             <SafeAreaView style={styles.container}>
 
 
-                <View style={{ flex: 1, flexDirection: 'row', maxHeight: 62 }}>
+                <View style={{ flex: 1, flexDirection: 'row', maxHeight: 62, marginTop: 40 }}>
                     <MindfulLogo height={62} width={62} />
                     <Text style={{ ...styles.mindfulTextLogo, alignSelf: 'flex-end', marginLeft: 8 }}>Mindful.</Text>
                 </View>
