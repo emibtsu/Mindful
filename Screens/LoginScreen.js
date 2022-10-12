@@ -7,7 +7,6 @@ import { styles } from '../Components/MindfulStyles';
 import MindfulLogo from '../Components/MindfulLogo';
 import TextButton from '../Components/TextButton';
 import BackArrow from '../Components/BackArrow';
-import bodyParser from 'body-parser';
 
 
 export default class LoginScreen extends React.Component {
@@ -27,7 +26,7 @@ export default class LoginScreen extends React.Component {
                 <View
                     style={{
                         flex: 1,
-                        maxHeight: 10,
+                        maxHeight: 50,
                         flexDirection: 'row',
                         marginTop: 30,
                         alignItems: 'center',
