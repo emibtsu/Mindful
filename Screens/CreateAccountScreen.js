@@ -40,7 +40,7 @@ export default class CreateAccountScreen extends React.Component {
         return (
             <SafeAreaView style={styles.container}>
 
-                <MindfulLogo height={200} width={200} style={{ marginTop: 30 }} />
+                <MindfulLogo height={200} width={200} style={{ marginTop: 60 }} />
 
                 <Text style={{ ...styles.title, marginTop: 50 }}>Let's get started</Text>
 
@@ -89,11 +89,15 @@ export default class CreateAccountScreen extends React.Component {
                     onPress={() => { this.createAccunt(this.state.emailInput, this.state.usernameInput, this.state.passwordInput1, this.state.passwordInput2) }}
                 />
 
-                <Text style={{ ...styles.small, marginTop: 5 }}>already have an account?</Text>
+                <TextButton
+                    title='already a member?'
+                    style={{ ...styles.small, marginTop: 8 }}
+                    onPress={() => { this.props.navigation.navigate('LoginScreen') }}
+                />
 
                 <TextButton
-                    title='login'
-                    style={{ ...styles.small }}
+                    title='log in'
+                    style={{ ...styles.small, marginTop: 0 }}
                     onPress={() => { this.props.navigation.navigate('LoginScreen') }}
                 />
 

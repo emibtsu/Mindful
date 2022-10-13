@@ -28,6 +28,16 @@ const styles = StyleSheet.create({
 
     },
 
+    smallGray: {
+        // fontFamily: 'Poppins',
+        fontSize: 18,
+        fontWeight: '600',
+        lineHeight: 24,
+        letterSpacing: 0,
+        textAlign: 'center',
+        color: 'gray'
+    },
+
     mindfulBackground: {
         backgroundColor: '#D2E1D0'
     },

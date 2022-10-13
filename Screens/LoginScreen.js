@@ -19,6 +19,18 @@ export default class LoginScreen extends React.Component {
         }
     }
 
+    login = (emailIn, passwordIn) => {
+        console.log('Logging in as:\nEmail: ' + emailIn + '\nPassword: ' + passwordIn);
+        this.setState({
+            'email': emailIn,
+            'password': passwordIn,
+            'loggedIn': true
+        });
+        if (true) { // Login Works
+            this.props.navigation.navigate('ProfileScreen')
+        }
+    }
+
     render() {
         return (
             <SafeAreaView style={styles.container}>
@@ -28,11 +40,14 @@ export default class LoginScreen extends React.Component {
                         flex: 1,
                         maxHeight: 50,
                         flexDirection: 'row',
-                        marginTop: 30,
+                        marginTop: 50,
+                        alignSelf: 'stretch',
+                        // borderWidth: 1,
+                        justifyContent: 'flex-start',
                         alignItems: 'center',
                     }}
                 >
-                    <BackArrow style={{ marginLeft: 0, marginTop: 5 }} onPress={() => { this.props.navigation.navigate('CreateAccountScreen') }} />
+                    <BackArrow style={{ marginLeft: 30, marginTop: 5 }} onPress={() => { this.props.navigation.navigate('CreateAccountScreen') }} />
                     <TextButton
                         title='sign up'
                         style={{ ...styles.small, marginLeft: 10 }}
@@ -41,7 +56,7 @@ export default class LoginScreen extends React.Component {
 
                 </View>
 
-                <MindfulLogo height={200} width={200} style={{ marginTop: 80 }} />
+                <MindfulLogo height={200} width={200} style={{ marginTop: 60 }} />
 
                 <Text style={{ ...styles.title, marginTop: 50 }}>Welcome back!</Text>
 
@@ -63,20 +78,15 @@ export default class LoginScreen extends React.Component {
                 <MindfulButton
                     style={{ backgroundColor: '#7D9C73', marginTop: 20 }}
                     title='login'
-                    onPress={() => { this.props.onLogin(this.state.emailInput, this.state.passwordInput) }}
+                    onPress={() => { this.login(this.state.emailInput, this.state.passwordInput) }}
                 />
 
                 <TextButton
                     title='forgot password?'
-                    style={{ ...styles.small, marginTop: 5 }}
+                    style={{ ...styles.small, marginTop: 8 }}
                     onPress={() => { this.props.navigation.navigate('ForgotPasswordScreen') }}
                 />
 
-                <TextButton
-                    title='sign up'
-                    style={{ ...styles.small }}
-                    onPress={() => { this.props.navigation.navigate('CreateAccountScreen') }}
-                />
 
             </SafeAreaView>
         );

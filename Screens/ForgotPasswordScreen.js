@@ -26,13 +26,13 @@ export default class ForgotPasswordScreen extends React.Component {
                         flex: 1,
                         maxHeight: 100,
                         flexDirection: 'row',
-                        marginTop: 30,
+                        marginTop: 10,
                         alignItems: 'center'
                     }}
                 >
                     <BackArrow style={{ marginLeft: 50, marginTop: 40 }} onPress={() => { this.props.navigation.navigate('LoginScreen') }} />
 
-                    <View style={{ flex: 1, flexDirection: 'row', maxHeight: 62, marginTop: 40, marginLeft: 50 }}>
+                    <View style={{ flex: 1, flexDirection: 'row', maxHeight: 62, marginTop: 40, marginLeft: 40 }}>
                         <MindfulLogo height={62} width={62} />
                         <Text style={{ ...styles.mindfulTextLogo, alignSelf: 'flex-end', marginLeft: 8 }}>Mindful.</Text>
                     </View>

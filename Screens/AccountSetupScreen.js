@@ -25,7 +25,7 @@ export default class AccountSetupScreen extends React.Component {
         } else {
             console.log(`Saving Profile using: \nFull Name: ${fullNameIn}\nBio: ${bioIn}`)
             // Save Profile to database!
-            this.props.navigation.navigate('WelcomeScreen')
+            this.props.navigation.navigate('ProfileScreen')
         }
     }
 

@@ -9,6 +9,7 @@ import CreateAccountScreen from './Screens/CreateAccountScreen';
 import WelcomeScreen from './Screens/WelcomeScreen';
 import AccountSetupScreen from './Screens/AccountSetupScreen';
 import ForgotPasswordScreen from './Screens/ForgotPasswordScreen';
+import ProfileScreen from './Screens/ProfileScreen';
 
 export default class App extends React.Component {
 
@@ -16,19 +17,8 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      loggedIn: false,
-      email: '',
-      password: ''
-    }
-  }
 
-  login = (emailIn, passwordIn) => {
-    console.log('Logging in as:\nEmail: ' + emailIn + '\nPassword: ' + passwordIn);
-    this.setState({
-      'email': emailIn,
-      'password': passwordIn,
-      'loggedIn': true
-    });
+    }
   }
 
   logout = (emailIn, passwordIn) => {
@@ -75,15 +65,14 @@ export default class App extends React.Component {
               component={ForgotPasswordScreen}
 
             />
+            <Stack.Screen
+              name='ProfileScreen'
+              component={ProfileScreen}
+
+            />
           </Stack.Navigator>
         </NavigationContainer>
 
-        {this.state.loggedIn && <MindfulButton
-          title='LOG OUT'
-          onPress={() => { this.logout(this.state.email, this.state.password) }}
-
-        />
-        }
       </React.Fragment>
     );
   }
