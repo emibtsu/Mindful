@@ -32,7 +32,6 @@ export default class App extends React.Component {
     });
   }
 
-
   render() {
     const Stack = createNativeStackNavigator();
     return (
@@ -44,31 +43,25 @@ export default class App extends React.Component {
             <Stack.Screen
               name='WelcomeScreen'
               component={WelcomeScreen}
-
             />
             <Stack.Screen
               name='LoginScreen'
-
             >{(props) => <LoginScreen {...props} onLogin={this.login} />}</Stack.Screen>
             <Stack.Screen
               name='CreateAccountScreen'
               component={CreateAccountScreen}
-
             />
             <Stack.Screen
               name='AccountSetupScreen'
               component={AccountSetupScreen}
-
             />
             <Stack.Screen
               name='ForgotPasswordScreen'
               component={ForgotPasswordScreen}
-
             />
             <Stack.Screen
               name='ProfileScreen'
               component={ProfileScreen}
-
             />
           </Stack.Navigator>
         </NavigationContainer>

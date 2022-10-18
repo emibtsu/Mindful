@@ -7,6 +7,7 @@ import { styles } from '../Components/MindfulStyles';
 import MindfulLogo from '../Components/MindfulLogo';
 import TextButton from '../Components/TextButton';
 import BackArrow from '../Components/BackArrow';
+import axios from 'axios';
 
 
 export default class LoginScreen extends React.Component {
@@ -27,6 +28,14 @@ export default class LoginScreen extends React.Component {
             'loggedIn': true
         });
         if (true) { // Login Works
+            axios.get('http://localhost3000/users')
+            
+            .then(resp => {
+                console.log(resp.data);
+            });
+            axios.post('http://localhost3000/users', {
+                
+            })
             this.props.navigation.navigate('ProfileScreen')
         }
     }
