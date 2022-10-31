@@ -28,14 +28,14 @@ export default class LoginScreen extends React.Component {
             'loggedIn': true
         });
         if (true) { // Login Works
-            axios.get('http://localhost3000/users')
-            
-            .then(resp => {
-                console.log(resp.data);
-            });
-            axios.post('http://localhost3000/users', {
-                
-            })
+            // axios.get('http://localhost3000/users')
+
+            // .then(resp => {
+            //     console.log(resp.data);
+            // });
+            // axios.post('http://localhost3000/users', {
+
+            // })
             this.props.navigation.navigate('ProfileScreen')
         }
     }

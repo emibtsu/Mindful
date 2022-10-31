@@ -10,6 +10,8 @@ import WelcomeScreen from './Screens/WelcomeScreen';
 import AccountSetupScreen from './Screens/AccountSetupScreen';
 import ForgotPasswordScreen from './Screens/ForgotPasswordScreen';
 import ProfileScreen from './Screens/ProfileScreen';
+import FeedScreen from './Screens/FeedScreen';
+import FriendsScreen from './Screens/FriendsScreen';
 
 export default class App extends React.Component {
 
@@ -62,6 +64,14 @@ export default class App extends React.Component {
             <Stack.Screen
               name='ProfileScreen'
               component={ProfileScreen}
+            />
+            <Stack.Screen
+              name='FeedScreen'
+              component={FeedScreen}
+            />
+            <Stack.Screen
+              name='FriendsScreen'
+              component={FriendsScreen}
             />
           </Stack.Navigator>
         </NavigationContainer>

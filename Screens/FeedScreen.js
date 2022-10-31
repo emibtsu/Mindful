@@ -1,21 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ScrollView, Text, SafeAreaView, Button, Image, View, Pressable } from 'react-native';
-import MindfulButton from '../Components/MindfulButton';
-import MindfulTextInput from '../Components/MindfulTextInput';
 import { styles } from '../Components/MindfulStyles';
-import BackArrow from '../Components/BackArrow';
-import ProfilePicture from '../Components/ProfilePicture';
 import Post from '../Components/Post';
 import NavBar from '../Components/NavBar';
+import Category from '../Components/Catetgory';
 
-export default class ProfileScreen extends React.Component {
+export default class FeedScreen extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            handle: '@carlyyyy',
-            bio: '#1 Mindful Fan | ASU \'23'
-        }
     }
 
     render() {
@@ -29,13 +22,14 @@ export default class ProfileScreen extends React.Component {
 
                 }}>
 
+
                     <View style={{
+                        marginTop: 40,
                         display: 'flex',
                         flexDirection: 'row',
                         alignItems: 'center',
                         justifyContent: 'space-between',
                         width: '90%',
-                        marginTop: 40
                     }}>
 
                         <View style={{ height: 48, width: 48, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
@@ -52,15 +46,18 @@ export default class ProfileScreen extends React.Component {
                                     }}
                                 />
                             </Pressable>
+
                         </View>
-                        <Text style={{ ...styles.title, marginTop: 0, fontWeight: '400' }}>Profile</Text>
+
+                        <Text style={{ ...styles.mindfulTextLogo }}>Mindful.</Text>
+
 
                         <Pressable
                             style={{}}
                             onPress={() => { console.log('GO TO SETTINGS') }}
                         >
                             <Image
-                                source={require('../assets/SettingsIcon.png')}
+                                source={require('../assets/ProfilePicture.png')}
                                 style={{
                                     resizeMode: 'cover',
                                     height: 48,
@@ -71,11 +68,6 @@ export default class ProfileScreen extends React.Component {
 
                     </View>
 
-                    <ProfilePicture height={200} width={200} style={{ marginTop: 10 }} />
-
-                    <Text style={{ ...styles.small, marginTop: 15 }}>{this.state.handle}</Text>
-
-                    <Text style={{ ...styles.small, marginTop: 10 }}>{this.state.bio}</Text>
 
 
                     <View
@@ -89,20 +81,41 @@ export default class ProfileScreen extends React.Component {
                             justifyContent: 'center'
                         }}
                     >
-                        <View style={{ flex: 1, flexDirection: 'row', alignSelf: 'center', marginTop: 10, }}>
-                            <Image style={{ marginTop: 6 }} source={require('../assets/CalendarIcon.png')} />
-                            <Text style={{ ...styles.small, fontWeight: '600', marginLeft: 5 }}>memories</Text>
-                        </View>
 
-                        <Post style={{}} poster='carlyyyy' category='something that makes me happy' />
+                        <View
+                            style={{
+                                flex: 1,
+                                alignItems: 'center',
+                            }}
+                        >
+                            <Text style={{ ...styles.smallGray, marginTop: 15, marginLeft: 30, alignSelf: 'flex-start' }}>laurenrt45</Text>
+
+                            <Image
+                                source={require('../assets/BikeImage.png')}
+                                style={{
+                                    resizeMode: 'cover',
+                                    marginTop: 2,
+                                    borderRadius: 15,
+                                    height: 462,
+                                    width: 330,
+
+                                }}
+                            />
+                            <Category style={{ marginTop: 10 }} text={'a favorite memory'} />
+
+                        </View>
+                        <Post style={{ marginTop: 15 }} poster='carlyyyy' category='something that makes me happy' />
+                        <Post style={{ marginTop: 15 }} poster='carlyyyy' category='something that makes me happy' />
                         <Post style={{ marginTop: 15 }} poster='carlyyyy' category='something that makes me happy' />
 
                         <View style={{ marginTop: 100 }} />
 
                     </View>
 
+
+
                 </ScrollView>
-                <NavBar navigation={this.props.navigation} previousScreen={'ProfileScreen'} />
+                <NavBar navigation={this.props.navigation} />
             </View>
 
         );
