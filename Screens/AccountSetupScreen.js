@@ -64,7 +64,7 @@ export default class AccountSetupScreen extends React.Component {
                             }}
                         />
                         <Image
-                            source={require('../assets/plusIcon.png')}
+                            source={require('../assets/PlusIcon.png')}
                             style={{
                                 resizeMode: 'contain',
                                 width: 24,

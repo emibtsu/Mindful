@@ -7,6 +7,7 @@ import BackArrow from '../Components/BackArrow';
 import ProfilePicture from '../Components/ProfilePicture';
 import Post from '../Components/Post';
 import NavBar from '../Components/NavBar';
+import HLine from '../Components/HLine';
 
 export default class ProfileScreen extends React.Component {
 
@@ -57,7 +58,7 @@ export default class ProfileScreen extends React.Component {
 
                         <Pressable
                             style={{}}
-                            onPress={() => { console.log('GO TO SETTINGS') }}
+                            onPress={() => { this.props.navigation.navigate('SettingsScreen') }}
                         >
                             <Image
                                 source={require('../assets/SettingsIcon.png')}
@@ -83,7 +84,7 @@ export default class ProfileScreen extends React.Component {
                             marginTop: 15,
                             flex: 1,
                             alignSelf: 'stretch',
-                            backgroundColor: 'white',
+                            backgroundColor: '#FFF',
                             borderTopLeftRadius: 35,
                             borderTopRightRadius: 35,
                             justifyContent: 'center'
@@ -95,6 +96,7 @@ export default class ProfileScreen extends React.Component {
                         </View>
 
                         <Post style={{}} poster='carlyyyy' category='something that makes me happy' />
+                        <HLine style={{ width: '100%', marginTop: 30 }} />
                         <Post style={{ marginTop: 15 }} poster='carlyyyy' category='something that makes me happy' />
 
                         <View style={{ marginTop: 100 }} />

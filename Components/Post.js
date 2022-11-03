@@ -3,7 +3,6 @@ import { Image, View, Text } from 'react-native';
 import { styles } from '../Components/MindfulStyles';
 import Category from './Catetgory';
 
-
 export default function Post(props) {
     return (
         <View
@@ -19,7 +18,7 @@ export default function Post(props) {
                 source={require('../assets/CatImage.png')}
                 style={{
                     resizeMode: 'cover',
-                    marginTop: 2,
+                    marginTop: 4,
                     borderRadius: 15,
                     height: 330,
                     width: 330,

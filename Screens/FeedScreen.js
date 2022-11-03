@@ -4,6 +4,7 @@ import { styles } from '../Components/MindfulStyles';
 import Post from '../Components/Post';
 import NavBar from '../Components/NavBar';
 import Category from '../Components/Catetgory';
+import HLine from '../Components/HLine';
 
 export default class FeedScreen extends React.Component {
 
@@ -46,7 +47,6 @@ export default class FeedScreen extends React.Component {
                                     }}
                                 />
                             </Pressable>
-
                         </View>
 
                         <Text style={{ ...styles.mindfulTextLogo }}>Mindful.</Text>
@@ -88,7 +88,7 @@ export default class FeedScreen extends React.Component {
                                 alignItems: 'center',
                             }}
                         >
-                            <Text style={{ ...styles.smallGray, marginTop: 15, marginLeft: 30, alignSelf: 'flex-start' }}>laurenrt45</Text>
+                            <Text style={{ ...styles.smallGray, marginTop: 25, marginLeft: 30, alignSelf: 'flex-start' }}>laurenrt45</Text>
 
                             <Image
                                 source={require('../assets/BikeImage.png')}
@@ -104,8 +104,11 @@ export default class FeedScreen extends React.Component {
                             <Category style={{ marginTop: 10 }} text={'a favorite memory'} />
 
                         </View>
+                        <HLine style={{ marginTop: 30, width: '100%' }} />
                         <Post style={{ marginTop: 15 }} poster='carlyyyy' category='something that makes me happy' />
+                        <HLine style={{ marginTop: 30, width: '100%' }} />
                         <Post style={{ marginTop: 15 }} poster='carlyyyy' category='something that makes me happy' />
+                        <HLine style={{ marginTop: 30, width: '100%' }} />
                         <Post style={{ marginTop: 15 }} poster='carlyyyy' category='something that makes me happy' />
 
                         <View style={{ marginTop: 100 }} />

@@ -12,6 +12,8 @@ import ForgotPasswordScreen from './Screens/ForgotPasswordScreen';
 import ProfileScreen from './Screens/ProfileScreen';
 import FeedScreen from './Screens/FeedScreen';
 import FriendsScreen from './Screens/FriendsScreen';
+import SettingsScreen from './Screens/SettingsScreen';
+
 
 export default class App extends React.Component {
 
@@ -72,6 +74,10 @@ export default class App extends React.Component {
             <Stack.Screen
               name='FriendsScreen'
               component={FriendsScreen}
+            />
+            <Stack.Screen
+              name='SettingsScreen'
+              component={SettingsScreen}
             />
           </Stack.Navigator>
         </NavigationContainer>

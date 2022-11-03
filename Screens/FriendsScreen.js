@@ -37,7 +37,7 @@ export default class FriendsScreen extends React.Component {
                         placeholder='search'
                         keyboardType='text'
                     />
-                    <Text style={{ ...styles.small, marginTop: 0, fontWeight: '300', marginTop: 15, alignSelf: 'flex-start', marginLeft: 25 }}>your friends</Text>
+                    <Text style={{ ...styles.small, fontWeight: '300', marginTop: 15, alignSelf: 'flex-start', marginLeft: 25 }}>your friends</Text>
 
                     <Image
                         source={require('../assets/FakeFriend1.png')}
