@@ -9,7 +9,7 @@ export default function NavBar(props) {
             bottom: 0,
             width: '100%',
             height: 70,
-            backgroundColor: '#FFFF',
+            backgroundColor: '#F9F7F5',
             border: 'solid',
             borderTopWidth: 1,
             borderColor: 'black',
@@ -32,7 +32,7 @@ export default function NavBar(props) {
                 />
             </Pressable>
             <Pressable
-                onPress={() => { props.navigation.navigate('LoginScreen') }}
+                onPress={() => { props.navigation.navigate('CreatePostScreen') }}
             >
                 <Image
                     source={require('../assets/PlusIcon.png')}

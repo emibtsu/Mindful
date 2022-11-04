@@ -13,10 +13,10 @@ import ProfileScreen from './Screens/ProfileScreen';
 import FeedScreen from './Screens/FeedScreen';
 import FriendsScreen from './Screens/FriendsScreen';
 import SettingsScreen from './Screens/SettingsScreen';
+import CreatePostScreen from './Screens/CreatePostScreen';
 
 
 export default class App extends React.Component {
-
 
   constructor(props) {
     super(props);
@@ -78,6 +78,10 @@ export default class App extends React.Component {
             <Stack.Screen
               name='SettingsScreen'
               component={SettingsScreen}
+            />
+            <Stack.Screen
+              name='CreatePostScreen'
+              component={CreatePostScreen}
             />
           </Stack.Navigator>
         </NavigationContainer>

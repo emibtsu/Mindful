@@ -8,6 +8,7 @@ import ProfilePicture from '../Components/ProfilePicture';
 import Post from '../Components/Post';
 import NavBar from '../Components/NavBar';
 import HLine from '../Components/HLine';
+import Category from '../Components/Catetgory';
 
 export default class ProfileScreen extends React.Component {
 
@@ -84,7 +85,7 @@ export default class ProfileScreen extends React.Component {
                             marginTop: 15,
                             flex: 1,
                             alignSelf: 'stretch',
-                            backgroundColor: '#FFF',
+                            backgroundColor: '#F9F7F5',
                             borderTopLeftRadius: 35,
                             borderTopRightRadius: 35,
                             justifyContent: 'center'
@@ -97,7 +98,27 @@ export default class ProfileScreen extends React.Component {
 
                         <Post style={{}} poster='carlyyyy' category='something that makes me happy' />
                         <HLine style={{ width: '100%', marginTop: 30 }} />
-                        <Post style={{ marginTop: 15 }} poster='carlyyyy' category='something that makes me happy' />
+                        <View
+                            style={{
+                                flex: 1,
+                                alignItems: 'center',
+                            }}
+                        >
+                            <Text style={{ ...styles.smallGray, marginTop: 18, marginLeft: 30, alignSelf: 'flex-start' }}>carlyyyy</Text>
+
+                            <Image
+                                source={require('../assets/HotDogs.jpg')}
+                                style={{
+                                    resizeMode: 'cover',
+                                    marginTop: 4,
+                                    borderRadius: 15,
+                                    height: 462,
+                                    width: 330,
+
+                                }}
+                            />
+                            <Category style={{ marginTop: 10 }} text={'a favorite memory'} />
+                        </View>
 
                         <View style={{ marginTop: 100 }} />
 

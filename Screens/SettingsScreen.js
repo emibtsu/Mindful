@@ -9,29 +9,28 @@ import Post from '../Components/Post';
 import NavBar from '../Components/NavBar';
 import MindfulLogo from '../Components/MindfulLogo';
 import HLine from '../Components/HLine';
+import TextButton from '../Components/TextButton';
 
 export default class SettingsScreen extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            handle: '@carlyyyy',
-            bio: 'example bio'
+
         }
     }
 
     render() {
         return (
-            <View style={{ backgroundColor: '#FFF' }}>
+            <View style={{ backgroundColor: '#F9F7F5' }}>
 
 
 
                 <ScrollView contentContainerStyle={{
                     marginTop: 100,
-                    backgroundColor: '#FFF',
+                    backgroundColor: '#F9F7F5',
                     alignItems: 'center',
-                    justifyContent: 'flex-start'
-
+                    justifyContent: 'flex-start',
                 }}>
 
                     <Text style={{ ...styles.small, fontWeight: '500', marginTop: 18, alignSelf: 'flex-start', marginLeft: 40 }}>Settings</Text>
@@ -42,9 +41,23 @@ export default class SettingsScreen extends React.Component {
                     <HLine style={{ marginTop: 15 }} />
                     <Text style={{ ...styles.small, fontWeight: '300', marginTop: 15, alignSelf: 'flex-start', marginLeft: 40 }}>help & support</Text>
                     <HLine style={{ marginTop: 15 }} />
-                    <Text style={{ ...styles.small, fontWeight: '300', marginTop: 15, alignSelf: 'flex-start', marginLeft: 40 }}>about</Text>
-                    <HLine style={{ marginTop: 15 }} />
                     <Text style={{ ...styles.small, fontWeight: '300', marginTop: 15, alignSelf: 'flex-start', marginLeft: 40 }}>notifications</Text>
+                    <HLine style={{ marginTop: 15 }} />
+
+                    <TextButton
+                        title='log out'
+                        style={{
+                            marginTop: 15,
+                            alignSelf: 'flex-start',
+                            marginLeft: 40
+                        }}
+                        textStyle={{
+                            ...styles.small,
+                            fontWeight: '300',
+                        }}
+                        onPress={() => { this.props.navigation.navigate('WelcomeScreen') }}
+                    />
+
                     <HLine style={{ marginTop: 15 }} />
                     <View style={{ marginTop: 50 }} />
 

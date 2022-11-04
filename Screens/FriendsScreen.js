@@ -21,13 +21,13 @@ export default class FriendsScreen extends React.Component {
 
     render() {
         return (
-            <View style={{ backgroundColor: '#FFF' }}>
+            <View style={{ backgroundColor: '#F9F7F5' }}>
 
 
 
                 <ScrollView contentContainerStyle={{
                     marginTop: 100,
-                    backgroundColor: '#FFF',
+                    backgroundColor: '#F9F7F5',
                     alignItems: 'center',
                     justifyContent: 'flex-start'
 

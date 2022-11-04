@@ -57,11 +57,7 @@ export default class LoginScreen extends React.Component {
                     }}
                 >
                     <BackArrow style={{ marginLeft: 30, marginTop: 5 }} onPress={() => { this.props.navigation.navigate('CreateAccountScreen') }} />
-                    <TextButton
-                        title='sign up'
-                        style={{ ...styles.small, marginLeft: 10 }}
-                        onPress={() => { this.props.navigation.navigate('CreateAccountScreen') }}
-                    />
+
 
                 </View>
 

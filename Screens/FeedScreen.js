@@ -75,7 +75,7 @@ export default class FeedScreen extends React.Component {
                             marginTop: 15,
                             flex: 1,
                             alignSelf: 'stretch',
-                            backgroundColor: 'white',
+                            backgroundColor: '#F9F7F5',
                             borderTopLeftRadius: 35,
                             borderTopRightRadius: 35,
                             justifyContent: 'center'
@@ -88,13 +88,13 @@ export default class FeedScreen extends React.Component {
                                 alignItems: 'center',
                             }}
                         >
-                            <Text style={{ ...styles.smallGray, marginTop: 25, marginLeft: 30, alignSelf: 'flex-start' }}>laurenrt45</Text>
+                            <Text style={{ ...styles.smallGray, marginTop: 18, marginLeft: 30, alignSelf: 'flex-start' }}>laurenrt45</Text>
 
                             <Image
                                 source={require('../assets/BikeImage.png')}
                                 style={{
                                     resizeMode: 'cover',
-                                    marginTop: 2,
+                                    marginTop: 4,
                                     borderRadius: 15,
                                     height: 462,
                                     width: 330,
@@ -102,18 +102,87 @@ export default class FeedScreen extends React.Component {
                                 }}
                             />
                             <Category style={{ marginTop: 10 }} text={'a favorite memory'} />
+                        </View>
 
+                        <HLine style={{ marginTop: 30, width: '100%' }} />
+                        <Post style={{ marginTop: 15 }} poster='carlyyyy' category='something that makes me happy' />
+                        <HLine style={{ marginTop: 30, width: '100%' }} />
+                        <View
+                            style={{
+                                flex: 1,
+                                alignItems: 'center',
+                            }}
+                        >
+                            <Text style={{ ...styles.smallGray, marginTop: 25, marginLeft: 30, alignSelf: 'flex-start' }}>monty_kz</Text>
+
+                            <View
+                                style={{
+                                    marginTop: 4,
+                                    width: 330,
+                                    height: 90,
+                                    borderRadius: 20,
+                                    backgroundColor: '#F9F7F5',
+                                    borderWidth: 1,
+                                    paddingHorizontal: 5,
+                                    justifyContent: 'center',
+                                    borderColor: "#b0b0b0"
+                                }}
+                            >
+                                <Text style={{ ...styles.small, fontSize: 18, textAlign: 'center' }}>I was at Starbucks a couple days ago and the person ahead of me paid for my drink :)</Text>
+
+                            </View>
+                            <Category style={{ marginTop: 10, height: 50, justifyContent: 'center' }} text={'when was the last time someone made your day?'} />
                         </View>
                         <HLine style={{ marginTop: 30, width: '100%' }} />
-                        <Post style={{ marginTop: 15 }} poster='carlyyyy' category='something that makes me happy' />
+                        <View
+                            style={{
+                                flex: 1,
+                                alignItems: 'center',
+                            }}
+                        >
+                            <Text style={{ ...styles.smallGray, marginTop: 25, marginLeft: 30, alignSelf: 'flex-start' }}>22xcaleb</Text>
+
+                            <Image
+                                source={require('../assets/AvacadoToast.png')}
+                                style={{
+                                    resizeMode: 'cover',
+                                    marginTop: 4,
+                                    borderRadius: 15,
+                                    height: 462,
+                                    width: 330,
+
+                                }}
+                            />
+                            <Category style={{ marginTop: 10, height: 50, justifyContent: 'center' }} text={'what is something that made you happy today?'} />
+                        </View>
                         <HLine style={{ marginTop: 30, width: '100%' }} />
-                        <Post style={{ marginTop: 15 }} poster='carlyyyy' category='something that makes me happy' />
-                        <HLine style={{ marginTop: 30, width: '100%' }} />
-                        <Post style={{ marginTop: 15 }} poster='carlyyyy' category='something that makes me happy' />
+
+                        <View
+                            style={{
+                                flex: 1,
+                                alignItems: 'center',
+                            }}
+                        >
+                            <Text style={{ ...styles.smallGray, marginTop: 18, marginLeft: 30, alignSelf: 'flex-start' }}>carlyyyy</Text>
+
+                            <Image
+                                source={require('../assets/HotDogs.jpg')}
+                                style={{
+                                    resizeMode: 'cover',
+                                    marginTop: 4,
+                                    borderRadius: 15,
+                                    height: 462,
+                                    width: 330,
+
+                                }}
+                            />
+                            <Category style={{ marginTop: 10 }} text={'a favorite memory'} />
+                        </View>
 
                         <View style={{ marginTop: 100 }} />
 
                     </View>
+
 
 
 
